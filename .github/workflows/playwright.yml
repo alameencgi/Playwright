@@ -42,4 +42,4 @@ jobs:
       - uses: daun/playwright-report-comment@v3
         if: always()
         with:
-          report-file: playwright-report
+          report-file: playwright-report/index.html
