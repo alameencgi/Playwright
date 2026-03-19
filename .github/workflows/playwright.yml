@@ -14,7 +14,7 @@ jobs:
     
     # ✅ INDUSTRY STANDARD: Use Docker Container
     container:
-      image: mcr.microsoft.com/playwright:v1.46.1-jammy
+      image: mcr.microsoft.com/playwright:v1.58.2-jammy
     
     steps:
       # Checkout code
