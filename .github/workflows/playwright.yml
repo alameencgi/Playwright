@@ -37,28 +37,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
-  # Separate job to publish report (runs outside container)
-  report:
-    name: Publish Test Report
-    needs: test
-    runs-on: ubuntu-latest
-    if: always()
-    
-    steps:
-      # Download the report artifact
-      - uses: actions/download-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report/
-      
-      # Publish test results to PR
-      - uses: daun/playwright-report-comment@v3
-        if: always()
-        with:
-          report-file: playwright-report/index.json
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          create-comment: true
-          comment-title: Playwright test results
-          job-summary: false
-          icon-style: octicons
